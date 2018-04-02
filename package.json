@@ -1,0 +1,27 @@
+{
+  "name": "record.js",
+  "version": "0.1.0",
+  "description": "minimalistic dead-simple storage library",
+  "main": "src/record.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/tape test/*.spec.js"
+  },
+  "keywords": [
+    "collection",
+    "storage",
+    "local",
+    "memory",
+    "minimalist"
+  ],
+  "author": "Geoff Doty",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "^4.9.0",
+    "uglify-es": "^3.3.9"
+  }
+}
