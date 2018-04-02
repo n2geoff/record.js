@@ -21,6 +21,7 @@
   "author": "Geoff Doty",
   "license": "MIT",
   "devDependencies": {
+    "jshint": "^2.9.5",
     "tape": "^4.9.0",
     "uglify-es": "^3.3.9"
   }
