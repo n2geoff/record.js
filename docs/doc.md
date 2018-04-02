@@ -1,4 +1,4 @@
-### Record.JS
+# Record.JS
 
 -   [constructor][1]
 -   [add][2]
