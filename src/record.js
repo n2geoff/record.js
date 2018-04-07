@@ -34,6 +34,13 @@
 
             // initialize the collection
             this.records = Array.isArray(init) ? init : [];
+            // get stored records, merge as needed
+            if(this.store && localStorage) {
+                this._log("Initializing localStorage for " + this.store);
+
+                let existing = this._load() || [];
+                this.records = [...existing];
+            }
         }
 
         /**
@@ -71,6 +78,8 @@
 
                     return entry;
                 });
+                // save to storage
+                this._save();
             } else {
                 if (!entry.id) {
                     entry.id = Math.random().toString(36).substr(2, 9);
@@ -78,6 +87,8 @@
 
                 this.records.push(entry);
 
+                // save to storage
+                this._save();
                 return entry;
             }
         }
@@ -160,12 +171,19 @@
                 this.records.splice(this.records.indexOf(item), 1);
             });
 
+            // save to storage
+            this._save();
+
             // return records removed
             return entries;
         }
 
         clear() {
+            // erase records to empty array
             this.records = [];
+
+            // save to storage
+            this._save();
         }
 
         /**
@@ -175,10 +193,31 @@
             return this.records.length;
         }
 
-        // save to localstorage
-        save() {
-            if (this.storage) {
-                // check for localStorage
+        //  save to localstorage
+        /**
+         * save a record to storage if available
+         * 
+         * @private
+         * 
+         * @memberof Record
+         */
+        _save() {
+            if (this.store && localStorage) {
+                localStorage.setItem(this.store, JSON.stringify(this.records));
+            }
+        }
+
+        /**
+         * load records from storage if exists
+         * 
+         * @private
+         * 
+         * @returns {array} of loaded records
+         * @memberof Record
+         */
+        _load() {
+            if (this.store && localStorage) {
+                return JSON.parse(localStorage.getItem(this.store)) || [];
             }
         }
 
