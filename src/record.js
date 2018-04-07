@@ -30,7 +30,7 @@
         constructor(init, opts) {
             // define options
             this.store = (opts || {}).store;
-            this.debug = (opts || {}).debug;
+            this.debug = (opts || {}).debug || false;
 
             // initialize the collection
             this.records = Array.isArray(init) ? init : [];
@@ -49,7 +49,7 @@
          * @private
          */
         _log() {
-            if(!this.debug) {
+            if(this.debug) {
                 console.log(...arguments);
             }
         }
