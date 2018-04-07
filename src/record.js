@@ -1,4 +1,4 @@
-/* Record.js | MIT | https://github.com/n2geoff/record.js */
+/*! Record.js | MIT | https://github.com/n2geoff/record.js */
 (function (root, factory) {
     "use strict";
     if (typeof module === "object" && module.exports) {
