@@ -21,19 +21,24 @@
          * @example
          * // create a new record (in-memory)
          * let pets = new Record();
+         * 
+         * @example
+         * // create a new record (localStorage)
+         * let pets = new Record({"store": "pets"});
          *
          * @param {array} init - collection to start with
          * @param {object} opts
          * @param {object} opts.store - localStorage ID to use
          * @param {object} opts.debug - show console logs
          */
-        constructor(init, opts) {
+        constructor(opts) {
             // define options
             this.store = (opts || {}).store;
             this.debug = (opts || {}).debug || false;
 
             // initialize the collection
-            this.records = Array.isArray(init) ? init : [];
+            this.records = [];
+
             // get stored records, merge as needed
             if(this.store && localStorage) {
                 this._log("Initializing localStorage for " + this.store);
