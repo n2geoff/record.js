@@ -73,27 +73,44 @@
          */
         add(entry) {
 
+            // for array of entries
             if (Array.isArray(entry)) {
+                // temp array
+                let entries = [];
+
                 entry.forEach(() => {
+                    // add id if not provided
                     if (!entry.id) {
                         entry.id = Math.random().toString(36).substr(2, 9);
                     }
 
+                    // add entry to records collection
                     this.records.push(entry);
 
-                    return entry;
+                    // used to return all added
+                    this.entries.push(entry);
                 });
+
                 // save to storage
                 this._save();
+
+                // return added entry(s)
+                return entries;
+
+            // if single entry
             } else {
+                // add id if not provided
                 if (!entry.id) {
                     entry.id = Math.random().toString(36).substr(2, 9);
                 }
 
+                // add entry to records collection
                 this.records.push(entry);
 
                 // save to storage
                 this._save();
+
+                // return added entry
                 return entry;
             }
         }
