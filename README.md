@@ -8,9 +8,21 @@ Go kick the tires in [`dist/`](https://raw.githubusercontent.com/n2geoff/record.
 
 Not done yet!
 
-## Docs
+## API
 
-- [docs](docs/api.md)
+The public API is very simple, only really need 3 methods: `add`, `remove`, and `find`.
+
+| Method | Description |
+| --- | ---|
+| `.add(object)`       | Adds entry to collection and return entry added              |
+| `.remove(id|object)` | Removes entry(s) from collection and returns removed         |
+| `.find(id|object)`   | find all, find by id, or find by filter, returns array of entries |
+| `.count()`           | returns number of records in collection                      |
+
+> SEE: [API Documentation](docs/api.md)
+
+### Options
+    - store: localStorage KEY to use. 
 
 ## Tests
 

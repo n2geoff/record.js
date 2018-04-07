@@ -1,4 +1,4 @@
-# Record.JS
+### Record.js API
 
 -   [constructor][1]
 -   [add][2]
@@ -10,10 +10,10 @@
 
 **Parameters**
 
--   `init` **[array][6]** collection to start with
--   `opts` **[object][7]** 
-    -   `opts.store` **[object][7]** localStorage ID to use
-    -   `opts.debug` **[object][7]** show console logs
+-   `opts` **[object][6]** 
+    -   `opts.store` **[object][6]** localStorage ID to use
+    -   `opts.debug` **[object][6]** show console logs
+-   `init` **[array][7]** collection to start with
 
 **Examples**
 
@@ -22,25 +22,29 @@
 let pets = new Record();
 ```
 
+```javascript
+// create a new record (localStorage)
+let pets = new Record({"store": "pets"});
+```
+
 ## add
 
-Add record to collection creating an sudo unique id if 
+Add record to collection creating an sudo unique id if
 one not provided
 
 **Parameters**
 
--   `entry` **[Object][7]** object(s) you want to store
+-   `entry` **[Object][6]** object(s) you want to store
 
 **Examples**
 
 ```javascript
 // add pet to collection
 let dog = pets.add({"name": "Yonkers", "age": 5});
-
-// [{"id": "14rj345k9", "name": "Yonkers", "age": 5}]
+// > [{"id": "14rj345k9", "name": "Yonkers", "age": 5}]
 ```
 
-Returns **[array][6]** record added
+Returns **[object][6]** entry added
 
 ## find
 
@@ -67,11 +71,9 @@ let record = collection.find(1);
 let dogs = collection.find({"type": "dog"});
 ```
 
-Returns **[array][6]** matching records
+Returns **[array][7]** matching records
 
 ## remove
-
--   **See: [find][10]**
 
 Remove record(s) from collection.  Leverages same functionality as `find`
 
@@ -84,9 +86,10 @@ Remove record(s) from collection.  Leverages same functionality as `find`
 ```javascript
 // remove all records by type
 let removed = collection.remove({"type": "cat"});
+// > []
 ```
 
-Returns **[array][6]** records removed
+Returns **[array][7]** records removed
 
 ## count
 
@@ -101,3 +104,11 @@ Returns **[number][9]** count of records in collection
 [4]: #remove
 
 [5]: #count
+
+[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
