@@ -1,4 +1,4 @@
-/*! Record.js | MIT | https://github.com/n2geoff/record.js */
+/*! Record.js v0.6.0 | MIT | https://github.com/n2geoff/record.js */
 (function (root, factory) {
     "use strict";
     if (typeof module === "object" && module.exports) {
@@ -113,10 +113,6 @@
             this._save();
         }
 
-        count() {
-            return this.records.length;
-        }
-
         _save() {
             if (this.store && localStorage) {
                 localStorage.setItem(this.store, JSON.stringify(this.records));
@@ -129,7 +125,17 @@
             }
         }
 
-        dump() {}
+        dump() {
+            function download(filename, content) {
+                let a = document.createElement("a");
+                let file = new Blob([content], {type: 'text/plain'});
+                a.href = URL.createObjectURL(file);
+                a.download = filename;
+                a.click();
+            }
+
+            download(`${this.store || 'data'}.json`, JSON.stringify(this._load(), null, 4));
+        }
     }
 
     return Record;

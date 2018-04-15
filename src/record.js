@@ -1,4 +1,4 @@
-/*! Record.js | MIT | https://github.com/n2geoff/record.js */
+/*! Record.js v0.6.0 | MIT | https://github.com/n2geoff/record.js */
 (function (root, factory) {
     "use strict";
     if (typeof module === "object" && module.exports) {
@@ -21,7 +21,7 @@
          * @example
          * // create a new record (in-memory)
          * let pets = new Record();
-         * 
+         *
          * @example
          * // create a new record (localStorage)
          * let pets = new Record({"store": "pets"});
@@ -208,19 +208,12 @@
             this._save();
         }
 
-        /**
-         * @returns {number} count of records in collection
-         */
-        count() {
-            return this.records.length;
-        }
-
         //  save to localstorage
         /**
          * save a record to storage if available
-         * 
+         *
          * @private
-         * 
+         *
          * @memberof Record
          */
         _save() {
@@ -231,9 +224,9 @@
 
         /**
          * load records from storage if exists
-         * 
+         *
          * @private
-         * 
+         *
          * @returns {array} of loaded records
          * @memberof Record
          */
@@ -243,7 +236,24 @@
             }
         }
 
-        dump() {}
+        /**
+         * Dumps data to JSON file
+         *
+         * Uses 'store' as file name with a '.json' extension
+         *
+         * @return {object} JSON Object of records
+         */
+        dump() {
+            function download(filename, content) {
+                let a = document.createElement("a");
+                let file = new Blob([content], {type: 'text/plain'});
+                a.href = URL.createObjectURL(file);
+                a.download = filename;
+                a.click();
+            }
+
+            download(`${this.store || 'data'}.json`, JSON.stringify(this._load(), null, 4));
+        }
     }
 
     return Record;

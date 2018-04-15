@@ -2,9 +2,9 @@
 
 > A minimalistic object collection library
 
-**Record.js** aims to provide a lite, *2kb*, *no dependency* collection utility to help build simple in-memory or local storage data sets.  Records are stored as `JSON`.
+**Record.js** aims to provide a lite, *2kb*, *zero-dependency* collection utility to help build simple in-memory or local storage data records.  Records are stored as arrays in a `JSON` object.
 
-> SOON: ability to export json collections
+Records can export raw JSON records, with no internals, via `.dump()`
 
 ## WIP
 
@@ -24,7 +24,7 @@ add something to the collection
     pets.add({"name": "Fluffy", "type": "cat"});
     // [{"id": "123fk91j7", "name": "Fluffy", "type": "cat"}]
 
-an `id` field is auto-generated if not provided, this allows easy record retrival via
+an `id` field is auto-generated if not provided, this allows easy record retrieval via
 
     pets.find("123fk91j7");
     // [{"id": "123fk91j7", "name": "Fluffy", "type": "cat"}]
@@ -53,17 +53,26 @@ The public API is very simple, you really only need 3 methods: `add`, `remove`, 
 | `.add(object)`       | Adds entry to collection and returns entry(s) added |
 | `.remove(id|object)` | Removes entry(s) from collection and returns removed |
 | `.find(id|object)`   | find all, find by id, or find by filter, returns array of entries |
-| `.count()` | returns number of records in collection |
+| `.dump()`   | saves records to JSON file |
+
+#### Length (Count Records)
+As `Records` are just plain JavaScript Arrays, you can use `.length` to determine the number of
+results returned, for example:
+
+```js
+let cats = pets.find({"type": "cat"}); // []
+cats.length;  // 0
+```
 
 > NOTICE: `find` is special, changes based on what you pass in, an id, an object, or nothing at all  
-- Additional [API Documentation](docs/api.md) 
+- Additional [API Documentation](docs/api.md)
 
 ### Options
 
 Records.js constructor supports a few options passed in as an `object`
 
     - store: localStorage KEY to use. This actives localStorage if available
-    - debug: may logout useful information, maybe not;) 
+    - debug: may logout useful information, maybe not;)
 
 ## Tests
 
