@@ -26,7 +26,6 @@
          * // create a new record (localStorage)
          * let pets = new Record({"store": "pets"});
          *
-         * @param {array} init - collection to start with
          * @param {object} opts
          * @param {object} opts.store - localStorage ID to use
          * @param {object} opts.debug - show console logs

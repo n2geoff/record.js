@@ -2,9 +2,17 @@
 
 > A minimalistic object collection library
 
-**Record.js** aims to provide a lite, *2kb*, *zero-dependency* collection utility to help build simple in-memory or local storage data records.  Records are stored as arrays in a `JSON` object.
+**Record.js** aims to provide a lite, *2kb*, *zero-dependency* collection utility to help build simple in-memory or local storage database of records.  Records are stored as simple arrays.
 
-Records can export raw JSON records, with no internals, via `.dump()`
+Records can be exported to JSON, with no internals so you can import your data anywhere; via `.dump()`
+
+### Features
+
+- Tiny, only 2kb
+- Zero-Dependencies
+- Saves to LocalStorage (if available)
+- Saves to simple JSON
+- Browser or Nodejs compatible
 
 ## WIP
 
@@ -56,8 +64,7 @@ The public API is very simple, you really only need 3 methods: `add`, `remove`, 
 | `.dump()`   | saves records to JSON file |
 
 #### Length (Count Records)
-As `Records` are just plain JavaScript Arrays, you can use `.length` to determine the number of
-results returned, for example:
+As `Records` are just plain JavaScript Arrays, you can use `.length` to determine the number of results returned, for example:
 
 ```js
 let cats = pets.find({"type": "cat"}); // []
@@ -71,8 +78,10 @@ cats.length;  // 0
 
 Records.js constructor supports a few options passed in as an `object`
 
-    - store: localStorage KEY to use. This actives localStorage if available
-    - debug: may logout useful information, maybe not;)
+- **store**: localStorage KEY to use. This actives localStorage if available
+- **stores**: TBD
+- **debug**: may logout useful information, maybe not;)
+- **fields**: TBD
 
 ## Tests
 
