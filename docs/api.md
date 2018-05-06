@@ -91,10 +91,6 @@ let removed = collection.remove({"type": "cat"});
 
 Returns **[array][7]** records removed
 
-## count
-
-Returns **[number][9]** count of records in collection
-
 [1]: #constructor
 
 [2]: #add
@@ -110,5 +106,3 @@ Returns **[number][9]** count of records in collection
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 [8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
-[9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
