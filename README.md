@@ -2,16 +2,16 @@
 
 > A minimalistic object collection library
 
-**Record.js** aims to provide a lite, *2kb*, *zero-dependency* collection utility to help build simple in-memory or local storage database of records.  Records are stored as simple arrays.
+**Record.js** aims to provide a lite, *2kb*, *zero-dependency* collection utility to help build simple in-memory or local storage database of records.  Records are stored as plain arrays.
 
-Records can be exported to JSON, with no internals so you can import your data anywhere; via `.dump()`
+Records can be exported to JSON, with no internal metadata[*], so you can import your data anywhere; via `.dump()`
 
 ### Features
 
 - Tiny, only 2kb
 - Zero-Dependencies
 - Saves to LocalStorage (if available)
-- Saves to simple JSON
+- Data saved as simple JSON
 - Browser or Nodejs compatible
 
 ## Getting Started
@@ -94,3 +94,7 @@ Anyone is welcome to contribute, however, if you decide to get involved, please 
 ## License
 
 [MIT](LICENSE)
+
+---
+
+> [*]: with exception of a generated ID, if not provided
