@@ -14,10 +14,6 @@ Records can be exported to JSON, with no internals so you can import your data a
 - Saves to simple JSON
 - Browser or Nodejs compatible
 
-## WIP
-
-Not done yet!
-
 ## Getting Started
 
 - [Download Library](https://raw.githubusercontent.com/n2geoff/record.js/master/dist/record.min.js), then...
