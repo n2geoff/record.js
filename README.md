@@ -54,10 +54,10 @@ The public API is very simple, you really only need 3 methods: `add`, `remove`, 
 
 | Method | Description |
 |---|---|
-| .add(object)       | Adds entry to collection and returns entry(s) added |
-| .remove(id|object) | Removes entry(s) from collection and returns removed |
-| .find(id|object)   | find all, find by id, or find by filter, returns array of entries |
-| .dump()   | saves records to JSON file |
+| `.add(object)`       | Adds entry to collection and returns entry(s) added |
+| `.remove(id or object)` | Removes entry(s) from collection and returns removed |
+| `.find(id or object)`   | find all, find by id, or find by filter, returns array of entries |
+| `.dump()`   | saves records to JSON file |
 
 #### Length (Count Records)
 As `Records` are just plain JavaScript Arrays, you can use `.length` to determine the number of results returned, for example:
