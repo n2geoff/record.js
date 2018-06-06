@@ -11,8 +11,12 @@ Records can be exported to JSON, with no internal metadata[*], so you can import
 - Tiny, only 2kb
 - Zero-Dependencies
 - Saves to LocalStorage (if available)
-- Data saved as simple JSON
+- Data saved, and exported as simple JSON
 - Browser or Nodejs compatible
+
+### Why
+
+Sometimes having a simple single-user data storage library that stays out of your way while you prototype out your ideas is all you need.  With a small footprint, removing/replacing a library like `record.js` is a breeze.  Ideally, using this to library to build out configuration files, mock out test data, or even develop simple applications is where this shines.  I use it for just that!  I often replace this library once an idea becomes soluble; I export the data to JSON to a real DB and expand.
 
 ## Getting Started
 
