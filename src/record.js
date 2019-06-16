@@ -1,5 +1,5 @@
 /*! Record.js v0.6.1 | MIT | https://github.com/n2geoff/record.js */
-(function (root, factory) {
+;(function (root, factory) {
     "use strict";
     if (typeof module === "object" && module.exports) {
         module.exports = factory(root.Record);
@@ -112,6 +112,33 @@
                 // return added entry
                 return entry;
             }
+        }
+
+        /**
+         * Updates a Record
+         *
+         * @param {Object} entry
+         */
+        update(entry) {
+
+            // find entry index
+            var idx = this.records.indexOf(entry);
+
+            // sanity check
+            if(this.records[idx].id === entry.id) {
+
+                // update record
+                this.records.splice(idx, 1, entry);
+
+                // save to storage
+                this._save();
+
+                return entry;
+
+            } else {
+                return false;
+            }
+
         }
 
         /**

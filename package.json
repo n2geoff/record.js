@@ -1,6 +1,6 @@
 {
   "name": "record.js",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "dead-simple storage-collection library",
   "main": "src/record.js",
   "directories": {

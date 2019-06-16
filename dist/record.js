@@ -1,5 +1,5 @@
-/*! Record.js v0.6.1 | MIT | https://github.com/n2geoff/record.js */
-(function (root, factory) {
+/*! Record.js v0.7.0 | MIT | https://github.com/n2geoff/record.js */
+;(function (root, factory) {
     "use strict";
     if (typeof module === "object" && module.exports) {
         module.exports = factory(root.Record);
@@ -60,6 +60,24 @@
 
                 return entry;
             }
+        }
+
+        update(entry) {
+
+            var idx = this.records.indexOf(entry);
+
+            if(this.records[idx].id === entry.id) {
+
+                this.records.splice(idx, 1, entry);
+
+                this._save();
+
+                return entry;
+
+            } else {
+                return false;
+            }
+
         }
 
         find(key) {

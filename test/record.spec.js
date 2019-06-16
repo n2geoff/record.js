@@ -34,6 +34,30 @@ test("Record.js", function(t) {
         t.end();
     });
 
+    t.test("should be able to update a record", function(t) {
+
+        let plato = pets.find({"name": "plato"})[0];
+
+        t.equal(plato.age, undefined, "should not have age yet");
+
+        plato.age = 80;
+
+        let update = pets.update(plato);
+
+        t.equal(update.age, 80, "should exist in db now");
+        t.end();
+    });
+
+    t.test("should be able find pet", function(t) {
+
+        let plato = pets.find({"age": 80})[0];
+
+        t.ok(plato, "found plato");
+
+        t.equal(plato.name, "plato", "yep, that him");
+        t.end();
+    });
+
     t.test("should find all matching records", function(t) {
         let dogs = pets.find({"type": "dog"});
 

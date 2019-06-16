@@ -42,6 +42,13 @@ you can also find items via properties like
     pets.find({"type": "cat"});
     // [{"id": "123fk91j7", "name": "Fluffy", "type": "cat"}]
 
+and when it comes time to update you can do that to
+
+    var fluffy = pets.find({"name": "Fluffy"})[0]; // one record
+    fluffy.age = 25;
+
+    pets.update(fluffy);
+
 and you can remove items via
 
     pets.remove("123fk91j7");
@@ -54,11 +61,12 @@ so, no records, right?
 
 ### API
 
-The public API is very simple, you really only need 3 methods: `add`, `remove`, and `find`.
+The public API is very simple, you really only need 4 methods: `add`, `update`, `remove`, and `find`.
 
 | Method | Description |
 |---|---|
 | `.add(object)`       | Adds entry to collection and returns entry(s) added |
+| `.update(object)`    | Updates a record |
 | `.remove(id or object)` | Removes entry(s) from collection and returns removed |
 | `.find(id or object)`   | find all, find by id, or find by filter, returns array of entries |
 | `.dump()`   | saves records to JSON file |
@@ -71,7 +79,7 @@ let cats = pets.find({"type": "cat"}); // []
 cats.length;  // 0
 ```
 
-> NOTICE: `find` is special, changes based on what you pass in, an id, an object, or nothing at all  
+> NOTICE: `find` is special, changes based on what you pass in, an id, an object, or nothing at all
 - Additional [API Documentation](docs/api.md)
 
 ### Options
@@ -102,3 +110,7 @@ Anyone is welcome to contribute, however, if you decide to get involved, please 
 ---
 
 > [*]: with exception of a generated ID, if not provided
+
+## TODO
+
+- make reactive, so just doing `fluffy.age = 25` updates
