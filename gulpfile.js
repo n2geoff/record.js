@@ -1,5 +1,5 @@
 const gulp = require("gulp");
-const minify = require('gulp-minify');
+const minify = require("gulp-minify");
 const strip = require("gulp-strip-comments");
 
 gulp.task("default", function() {

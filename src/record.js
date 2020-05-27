@@ -1,4 +1,4 @@
-/*! Record.js v0.7.1 | MIT | https://github.com/n2geoff/record.js */
+/*! Record.js v0.7.2 | MIT | https://github.com/n2geoff/record.js */
 ;(function (root, factory) {
     "use strict";
     if (typeof module === "object" && module.exports) {
