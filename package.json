@@ -1,6 +1,6 @@
 {
   "name": "record.js",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "description": "dead-simple storage-collection library",
   "main": "src/record.js",
   "directories": {
@@ -9,8 +9,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node_modules/.bin/tape test/*.spec.js",
-    "build": "node_modules/.bin/gulp"
+    "build": "npm run build:es && npm run build:es:min && npm run build:cjs",
+    "build:es": "esbuild src/record.js --minify-whitespace --format=esm --outfile=dist/record.js",
+    "build:es:min": "esbuild src/record.js --minify --sourcemap --format=esm --outfile=dist/record.min.js",
+    "build:cjs": "esbuild src/record.js --minify-whitespace --format=cjs --platform=node --outfile=dist/record.cjs.js",
+    "test": "npm run lint && npm run build && npx tape test/*.spec.js",
+    "lint": "npx eslint src/record.js"
   },
   "repository": {
     "type": "git",
@@ -26,11 +30,9 @@
   ],
   "author": "Geoff Doty",
   "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.1.0",
-    "gulp": "^4.0.2",
-    "gulp-minify": "^3.1.0",
-    "gulp-strip-comments": "^2.5.2",
-    "tape": "^5.0.1"
+    "eslint": "^7.16.0",
+    "tape": "^5.1.0"
   }
 }

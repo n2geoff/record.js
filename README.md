@@ -8,11 +8,11 @@ Records can be exported to JSON, with no internal metadata[*], so you can import
 
 ### Features
 
-- Tiny, only 2kb
+- Tiny, only >2kb
 - Zero-Dependencies
 - Saves to LocalStorage (if available)
 - Data saved, and exported as simple JSON
-- Browser or Nodejs compatible
+- Browser ESM or Nodejs (use `require('record.cjs.js').default`)
 
 ### Why
 
@@ -94,6 +94,12 @@ Records.js constructor supports a few options passed in as an `object`
 ## Tests
 
     npm test
+
+## Build
+
+    npm install esbuild -g
+
+    npm run build
 
 ## Support
 

@@ -1,5 +1,5 @@
 const test = require("tape");
-const Record = require("../src/record.js");
+const Record = require("../dist/record.cjs.js").default;
 
 test("Record.js", function(t) {
     let pets;
